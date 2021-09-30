@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpPathFinding", "EpPathFinding.csproj", "{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsJps", "CsJps\CsJps.csproj", "{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Debug|x86.ActiveCfg = Debug|x86
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Debug|x86.Build.0 = Debug|x86
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Release|Any CPU.ActiveCfg = Release|x86
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Release|x86.ActiveCfg = Release|x86
+		{82FE700A-0BA3-49D0-ACE0-C1F87FBE5021}.Release|x86.Build.0 = Release|x86
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Debug|x86.Build.0 = Debug|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Release|x86.ActiveCfg = Release|Any CPU
+		{1A5BA82D-0B51-45D0-A5ED-E0645495C3AC}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2896D7ED-724A-4764-9D37-F8AF0E052582}
+	EndGlobalSection
+EndGlobal
