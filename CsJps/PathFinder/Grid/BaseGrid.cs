@@ -196,16 +196,16 @@ namespace EpPathFinding
 
         public abstract bool SetWalkableAt(GridPos iPos, bool iWalkable);
 
-        public List<Node> GetNeighbors(Node iNode, bool iCrossCorners, bool iCrossAdjacentPoint)
+        public bool GetNeighbors(Node iNode, bool iCrossCorners, bool iCrossAdjacentPoint, List<Node> neighbors)
         {
             int tX = iNode.x;
             int tY = iNode.y;
-            List<Node> neighbors = new List<Node>();
             bool tS0 = false, tD0 = false,
                 tS1 = false, tD1 = false,
                 tS2 = false, tD2 = false,
                 tS3 = false, tD3 = false;
 
+            neighbors.Clear();
             GridPos pos = new GridPos();
             if (this.IsWalkableAt(pos.Set(tX, tY - 1)))
             {
@@ -265,7 +265,7 @@ namespace EpPathFinding
             {
                 neighbors.Add(GetNodeAt(pos));
             }
-            return neighbors;
+            return neighbors.Count > 0;
         }
 
         public abstract void Reset();

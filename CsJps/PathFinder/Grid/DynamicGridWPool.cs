@@ -104,16 +104,16 @@ namespace EpPathFinding
 
         private void setBoundingBox()
         {
-              foreach (KeyValuePair<GridPos, Node> pair in m_nodePool.Nodes)
+            foreach (KeyValuePair<long, Node> pair in m_nodePool.Nodes)
             {
-                if (pair.Key.x < m_gridRect.minX || m_notSet)
-                    m_gridRect.minX = pair.Key.x;
-                if (pair.Key.x > m_gridRect.maxX || m_notSet)
-                    m_gridRect.maxX = pair.Key.x;
-                if (pair.Key.y < m_gridRect.minY || m_notSet)
-                    m_gridRect.minY = pair.Key.y;
-                if (pair.Key.y > m_gridRect.maxY || m_notSet)
-                    m_gridRect.maxY = pair.Key.y;
+                if (pair.Value.x < m_gridRect.minX || m_notSet)
+                    m_gridRect.minX = pair.Value.x;
+                if (pair.Value.x > m_gridRect.maxX || m_notSet)
+                    m_gridRect.maxX = pair.Value.x;
+                if (pair.Value.y < m_gridRect.minY || m_notSet)
+                    m_gridRect.minY = pair.Value.y;
+                if (pair.Value.y > m_gridRect.maxY || m_notSet)
+                    m_gridRect.maxY = pair.Value.y;
                 m_notSet = false;
             }
             m_notSet = false;
@@ -151,7 +151,7 @@ namespace EpPathFinding
 
         public override bool IsWalkableAt(GridPos iPos)
         {
-            return  m_nodePool.Nodes.ContainsKey(iPos);
+            return  m_nodePool.Nodes.ContainsKey(iPos.CalcKey());
         }
 
         public override bool SetWalkableAt(GridPos iPos, bool iWalkable)
@@ -162,7 +162,7 @@ namespace EpPathFinding
 
         public override void Reset()
         {
-            foreach (KeyValuePair<GridPos, Node> keyValue in m_nodePool.Nodes)
+            foreach (KeyValuePair<long, Node> keyValue in m_nodePool.Nodes)
             {
                 keyValue.Value.Reset();
             }

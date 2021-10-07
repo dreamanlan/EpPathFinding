@@ -46,7 +46,7 @@ namespace EpPathFinding
 {
     public class DynamicGrid : BaseGrid
     {
-        protected Dictionary<GridPos, Node> m_nodes;
+        protected Dictionary<long, Node> m_nodes;
         private bool m_notSet;
 
 

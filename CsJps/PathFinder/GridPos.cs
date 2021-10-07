@@ -52,12 +52,10 @@ namespace EpPathFinding
             this.x = iX;
             this.y = iY;
         }
-
         public override int GetHashCode()
         {
-            return x ^ y;
+            return x.GetHashCode() + y.GetHashCode();
         }
-
         public override bool Equals(System.Object obj)
         {
             if (!(obj is GridPos))
@@ -66,25 +64,14 @@ namespace EpPathFinding
             // Return true if the fields match:
             return (x == p.x) && (y == p.y);
         }
-
         public bool Equals(GridPos p)
         {
-            // Return true if the fields match:
             return (x == p.x) && (y == p.y);
         }
-
         public static bool operator ==(GridPos a, GridPos b)
         {
-            // If both are null, or both are same instance, return true.
-            if (System.Object.ReferenceEquals(a, b))
-            {
-                return true;
-            }
-
-            // Return true if the fields match:
             return a.x == b.x && a.y == b.y;
         }
-
         public static bool operator !=(GridPos a, GridPos b)
         {
             return !(a == b);
@@ -95,6 +82,12 @@ namespace EpPathFinding
             this.x = iX;
             this.y = iY;
             return this;
+        }
+        public long CalcKey()
+        {
+            long key = y;
+            key = (key << 32) + x;
+            return key;
         }
     }
 }

@@ -133,7 +133,7 @@ namespace EpPathFinding
         {
             if (!IsInside(iPos))
                 return false;
-            return m_nodePool.Nodes.ContainsKey(iPos);
+            return m_nodePool.Nodes.ContainsKey(iPos.CalcKey());
         }
 
         public override bool SetWalkableAt(GridPos iPos, bool iWalkable)
@@ -161,7 +161,7 @@ namespace EpPathFinding
             }
             else
             {
-                foreach (KeyValuePair<GridPos, Node> keyValue in m_nodePool.Nodes)
+                foreach (KeyValuePair<long, Node> keyValue in m_nodePool.Nodes)
                 {
                     keyValue.Value.Reset();
                 }

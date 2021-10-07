@@ -45,14 +45,14 @@ namespace EpPathFinding
 {
     public class NodePool
     {
-        protected Dictionary<GridPos, Node> m_nodes;
+        protected Dictionary<long, Node> m_nodes;
 
         public NodePool()
         {
-            m_nodes = new Dictionary<GridPos, Node>();
+            m_nodes = new Dictionary<long, Node>();
         }
 
-        public Dictionary<GridPos, Node> Nodes
+        public Dictionary<long, Node> Nodes
         {
             get { return m_nodes; }
         }
@@ -64,9 +64,10 @@ namespace EpPathFinding
 
         public Node GetNode(GridPos iPos)
         {
-            if (m_nodes.ContainsKey(iPos))
-                return m_nodes[iPos];
-           return null;
+            long key = iPos.CalcKey();
+            Node ret;
+            m_nodes.TryGetValue(key, out ret);
+            return ret;
         }
 
         public Node SetNode(int iX, int iY, bool? iWalkable = null)
@@ -81,10 +82,13 @@ namespace EpPathFinding
             {
                 if (iWalkable.Value == true)
                 {
-                    if (m_nodes.ContainsKey(iPos))
-                        return m_nodes[iPos];
+                    long key = iPos.CalcKey();
+                    Node ret;
+                    if(m_nodes.TryGetValue(key, out ret)) {
+                        return ret;
+                    }
                     Node newNode = new Node(iPos.x, iPos.y, iWalkable);
-                    m_nodes.Add(iPos, newNode);
+                    m_nodes.Add(key, newNode);
                     return newNode;
                 }
                 else
@@ -96,7 +100,7 @@ namespace EpPathFinding
             else
             {
                 Node newNode = new Node(iPos.x, iPos.y, true);
-                m_nodes.Add(iPos, newNode);
+                m_nodes.Add(iPos.CalcKey(), newNode);
                 return newNode;
             }
             return null;
@@ -108,8 +112,7 @@ namespace EpPathFinding
         }
         protected void removeNode(GridPos iPos)
         {
-            if (m_nodes.ContainsKey(iPos))
-                m_nodes.Remove(iPos);
+            m_nodes.Remove(iPos.CalcKey());
         }
     }
 }

@@ -98,7 +98,6 @@ namespace EpPathFinding
 
             //Grid searchGrid=new Grid(width,height,movableMatrix);
             //BaseGrid searchGrid = new StaticGrid(width, height, movableMatrix);
-            //searchGrid = new DynamicGrid();
             searchGrid = new DynamicGridWPool(SingletonHolder<NodePool>.Instance);
             jumpParam = new JumpPointParam(searchGrid, true, cbCrossCorners.Checked, cbCrossAdjacentPoint.Checked, HeuristicMode.EUCLIDEAN);//new JumpPointParam(searchGrid, startPos, endPos, cbCrossCorners.Checked, HeuristicMode.EUCLIDEANSQR);
             jumpParam.UseRecursive = cbUseRecursive.Checked;
