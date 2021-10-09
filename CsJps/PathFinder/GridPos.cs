@@ -83,10 +83,10 @@ namespace EpPathFinding
             this.y = iY;
             return this;
         }
-        public long CalcKey()
+        public int CalcKey()
         {
-            long key = y;
-            key = (key << 32) + x;
+            int key = y;
+            key = (key << 16) + x;
             return key;
         }
     }

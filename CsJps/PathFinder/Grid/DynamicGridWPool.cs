@@ -104,7 +104,7 @@ namespace EpPathFinding
 
         private void setBoundingBox()
         {
-            foreach (KeyValuePair<long, Node> pair in m_nodePool.Nodes)
+            foreach (KeyValuePair<int, Node> pair in m_nodePool.Nodes)
             {
                 if (pair.Value.x < m_gridRect.minX || m_notSet)
                     m_gridRect.minX = pair.Value.x;
@@ -162,7 +162,7 @@ namespace EpPathFinding
 
         public override void Reset()
         {
-            foreach (KeyValuePair<long, Node> keyValue in m_nodePool.Nodes)
+            foreach (KeyValuePair<int, Node> keyValue in m_nodePool.Nodes)
             {
                 keyValue.Value.Reset();
             }

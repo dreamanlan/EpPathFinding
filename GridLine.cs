@@ -57,22 +57,17 @@ namespace EpPathFinding
             this.toY = iTo.boxRec.Y + 9;
             pen = new Pen(Color.Yellow);
             pen.Width = 2;
-            
-            
         }
 
         public void drawLine(Graphics iPaper)
         {
             iPaper.DrawLine(pen, fromX, fromY, toX, toY);
-            
         }
-
 
         public void Dispose()
         {
             if (this.pen != null)
                 this.pen.Dispose();
-
         }
     }
 }

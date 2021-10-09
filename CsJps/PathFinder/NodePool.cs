@@ -45,14 +45,14 @@ namespace EpPathFinding
 {
     public class NodePool
     {
-        protected Dictionary<long, Node> m_nodes;
+        protected Dictionary<int, Node> m_nodes;
 
         public NodePool()
         {
-            m_nodes = new Dictionary<long, Node>();
+            m_nodes = new Dictionary<int, Node>();
         }
 
-        public Dictionary<long, Node> Nodes
+        public Dictionary<int, Node> Nodes
         {
             get { return m_nodes; }
         }
@@ -64,7 +64,7 @@ namespace EpPathFinding
 
         public Node GetNode(GridPos iPos)
         {
-            long key = iPos.CalcKey();
+            int key = iPos.CalcKey();
             Node ret;
             m_nodes.TryGetValue(key, out ret);
             return ret;
@@ -82,7 +82,7 @@ namespace EpPathFinding
             {
                 if (iWalkable.Value == true)
                 {
-                    long key = iPos.CalcKey();
+                    int key = iPos.CalcKey();
                     Node ret;
                     if(m_nodes.TryGetValue(key, out ret)) {
                         return ret;

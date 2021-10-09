@@ -71,10 +71,9 @@ namespace EpPathFinding
                 case BoxType.Wall:
                     brush = new SolidBrush(Color.Gray);
                     break;
-            
             }
-            width = 18;
-            height = 18;
+            width = SearchGridForm.cell_width;
+            height = SearchGridForm.cell_height;
             boxRec = new Rectangle(x, y, width, height);
         }
 
@@ -88,7 +87,6 @@ namespace EpPathFinding
             }
         }
 
-        
         public void SwitchBox()
         {
             switch (this.boxType)
@@ -105,7 +103,6 @@ namespace EpPathFinding
                     this.brush = new SolidBrush(Color.WhiteSmoke);
                     this.boxType = BoxType.Normal;
                     break;
-
             }
         }
 
@@ -133,12 +130,10 @@ namespace EpPathFinding
             this.boxType = BoxType.End;
         }
 
-
         public void Dispose()
         {
             if(this.brush!=null)
                 this.brush.Dispose();
-
         }
     }
 }

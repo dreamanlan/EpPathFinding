@@ -64,11 +64,9 @@ namespace EpPathFinding
                 case ResultBoxType.Closed:
                     brush = new SolidBrush(Color.LightGreen);
                     break;
-              
-            
             }
-            width = 18;
-            height = 18;
+            width = SearchGridForm.cell_width;
+            height = SearchGridForm.cell_height;
             boxRec = new Rectangle(x, y, width, height);
         }
 
@@ -77,15 +75,12 @@ namespace EpPathFinding
             boxRec.X = x;
             boxRec.Y = y;
             iPaper.FillRectangle(brush, boxRec);
-         
         }
-
 
         public void Dispose()
         {
             if(this.brush!=null)
                 this.brush.Dispose();
-
         }
     }
 }
